@@ -55,10 +55,39 @@ def update(titre ,lien_transfo=None , lienficher=None ):
         return "Erreur de syntage dans la fonction"
     # Exécuter la requête
     
+def find(chiffre , titre):
+    match chiffre:
+        case 1:
+            query = "SELECT contenue FROM podcast_not WHERE Titre = %s;"
+            data = [titre]
+        case 2:
+            query = "SELECT lien FROM podcast_not WHERE Titre = %s;"
+            data = [titre]
+        case 3:
+            query = "SELECT lang FROM podcast_not WHERE Titre = %s;"
+            data = [titre]
+        case 4:
+            query = "SELECT lientransfo FROM podcast_not WHERE Titre = %s;"
+            data = [titre]
+        case 5:
+            query = "SELECT lienficher FROM podcast_not WHERE Titre = %s;"
+            data = [titre]
+        
 
+    # Exécuter la requête
+    cursor.execute(query, data)
 
+    # Récupérer tous les résultats
+    results = cursor.fetchall()
+
+    # Valider les modifications
+    cnx.commit()
+
+    # Afficher les résultats
+    return results
 
 def close():
     cnx.close()
     return close
 
+#find(1, "CPI And Earnings On Tap")

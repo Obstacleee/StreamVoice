@@ -9,6 +9,8 @@ strong = scrapper.supprimer_strong(java)
 lang= scrapper.langue(lien)
 titre = scrapper.titre(lien)
 
-sql.remove("test")
+#sql.remove(titre)
+
 #sql.add(titre,strong,lien,lang)
 
+#sql.find(1, "CPI And Earnings On Tap")
