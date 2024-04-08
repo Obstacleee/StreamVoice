@@ -1,5 +1,5 @@
-import sql 
-import scrapper
+from Package import sql 
+from Package import scrapper 
 
 
 lien = "https://www.forbes.com/sites/jjkinahan/2024/04/08/cpi-and-earnings-on-tap/?sh=64b3571a2cb5"
@@ -9,7 +9,7 @@ strong = scrapper.supprimer_strong(java)
 lang= scrapper.langue(lien)
 titre = scrapper.titre(lien)
 
-#sql.remove(titre)
+sql.remove(titre)
 
 #sql.add(titre,strong,lien,lang)
 
