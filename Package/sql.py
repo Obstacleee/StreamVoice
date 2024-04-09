@@ -1,93 +1,35 @@
 import mysql.connector
 
-cnx = mysql.connector.connect(user='root', password='',
-                              host='localhost',
-                              database='podcast')
+cnx = mysql.connector.connect(user='admin', password='adminadmin',
+                              host='dbactu.cfwaimucg5lz.eu-west-3.rds.amazonaws.com')
 cursor = cnx.cursor()
 
 def connection():
 
     return cnx
 
-def add(titre , contenue , lien, lang):
-    
+def add(contenu , dateDebut, ID_thématique , dateFin):
+    cursor.execute("USE RSS")
     # Écrire la requête SQL
-    query = "INSERT INTO podcast_not (Titre, contenue, lien , lang) VALUES (%s, %s , %s, %s)"
+    query = "INSERT INTO actu (Contenu , DateDébut , ID_Thématique , DateFin) VALUES (%s , %s , %s, %s)"
 
     # Les données à insérer
-    data = (titre, contenue, lien , lang)
+    data = (contenu , dateDebut , ID_thématique , dateFin)
     # Exécuter la requête
     cursor.execute(query, data)
 
     # Valider les modifications
     cnx.commit()
 
-def remove(titre):
-    query = "DELETE FROM podcast_not WHERE titre = %s"
-    data = (titre, )
+def get(id):
+    cursor.execute("USE RSS")
+    # Écrire la requête SQL
+    query = "SELECT * FROM actu WHERE ID_Thématique = %s"
 
+    # Les données à insérer
+    data = (id)
     # Exécuter la requête
     cursor.execute(query, data)
+    table = cursor.fetchall()
+    print(table)
 
-    # Valider les modifications
-    cnx.commit()
-
-def update(titre ,lien_transfo=None , lienficher=None ):
-    if titre and lien_transfo and lienficher:
-        query = "UPDATE podcast_not SET lientransfo = %s, lienficher = %s WHERE titre = %s"
-        data = (lien_transfo, lienficher, titre)
-        cursor.execute(query, data)
-        cnx.commit()
-        return f"Lien Ficher et tranfo modifier pour {lienficher} et {lienficher}"
-    elif titre and lien_transfo:
-        query = "UPDATE podcast_not SET lientransfo = %s WHERE titre = %s"
-        data = (lien_transfo , titre)
-        cursor.execute(query, data)
-        cnx.commit()
-        return f"Lien transfo modifier pour {lien_transfo}"
-    elif titre and lienficher:
-        query = "UPDATE podcast_not SET lienficher = %s WHERE titre = %s"
-        data = (lien_transfo, lienficher, titre)
-        cursor.execute(query, data)
-        cnx.commit()
-        return f"Lien Ficher modifier pour {lienficher}"
-    else : 
-        return "Erreur de syntage dans la fonction"
-    # Exécuter la requête
-    
-def find(chiffre , titre):
-    match chiffre:
-        case 1:
-            query = "SELECT contenue FROM podcast_not WHERE Titre = %s;"
-            data = [titre]
-        case 2:
-            query = "SELECT lien FROM podcast_not WHERE Titre = %s;"
-            data = [titre]
-        case 3:
-            query = "SELECT lang FROM podcast_not WHERE Titre = %s;"
-            data = [titre]
-        case 4:
-            query = "SELECT lientransfo FROM podcast_not WHERE Titre = %s;"
-            data = [titre]
-        case 5:
-            query = "SELECT lienficher FROM podcast_not WHERE Titre = %s;"
-            data = [titre]
-        
-
-    # Exécuter la requête
-    cursor.execute(query, data)
-
-    # Récupérer tous les résultats
-    results = cursor.fetchall()
-
-    # Valider les modifications
-    cnx.commit()
-
-    # Afficher les résultats
-    return results
-
-def close():
-    cnx.close()
-    return close
-
-#find(1, "CPI And Earnings On Tap")
