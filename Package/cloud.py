@@ -10,7 +10,8 @@ s3 = boto3.resource(
 def download(key , output):
     s3.meta.client.download_file('rssmp3',key, output)
 # Print out bucket names
-
+def upload(filepath , key):
+    s3.Bucket('rssmp3').upload_file(Filename=filepath, Key=key)
 
     
 # cheez-willikers

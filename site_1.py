@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request
+from Package import sql
+import datetime
+import locale
 
+locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
 # Create an instance of the Flask class that is the WSGI application.
 # The first argument is the name of the application module or package,
 # typically __name__ when using a single module.
@@ -11,26 +15,18 @@ app = Flask(__name__)
 
 @app.route('/',methods=["POST","GET"])  
 def podcast():
-   musique=[
-   {"titre": "lucas", "musique":"Ayana" , "Nom":"dada", "lang":"fr"},
-   {"titre": "lucas", "musique":"denjfe" , "Nom":"ddd", "lang":"fr"},
-   {"titre": "delon", "musique":"dnzd" , "Nom":"fjefe", "lang":"en"}
-   ]
-   langue = request.form.get("lang")
+
+   article_id_date = sql.get_article()
+   date_last = sql.get_date([16])
+   date_last = date_last[0][0]
    
-   recherche = request.form.get("search")
-   print(langue,recherche  )
+   # Conversion de la date en chaîne de caractères
+   date_last = date_last.strftime("%d %B %Y")
 
-   if langue == "all" and recherche is None:
-      musique_selec = musique
-   elif langue == "all" and recherche:
-      musique_selec = [musiq for musiq in musique if  musiq["titre"].lower() == recherche.lower()]
-   elif langue is not None and langue != "all" and recherche:
-      musique_selec = [musiq for musiq in musique if musiq["lang"] == langue and recherche.lower() in musiq["titre"].lower()]
-   else:
-      musique_selec = musique
+   #recherche = request.form.get("search")
 
-   return render_template("index.html", podcas=musique_selec)
+
+   return render_template("index.html",  date_last=date_last , sql=article_id_date)
 
 if __name__ == '__main__':
    # Run the app server on localhost:4449

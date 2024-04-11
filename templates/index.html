@@ -6,7 +6,7 @@
 </head>
 <body>
     <header>
-        <h1>Bienvenue sur Mon Podcast</h1>
+        <h1>Bienvenue sur HugoEncrypt</h1>
         <form action="" method="POST">
             <input type="text" id="search" name="search" placeholder="Rechercher">
             <select id="lang" name="lang">
@@ -18,28 +18,18 @@
         </form>
     </header>
     <main>
+
         <section>
-            <h2>Épisode 1</h2>
-            <audio controls>
-                <source src="horse.ogg" type="audio/ogg">
-              Your browser does not support the audio element.
-              </audio> 
+            {% for podcast in sql %}
+            <h2>Podcast du : {{ podcast[1].strftime("%d %B %Y") }}</h2>
+                <audio controls>
+                    <source src="{{podcast[0]}}" type="audio/ogg">
+                    Your browser does not support the audio element.
+                </audio> 
+            {% endfor %}
+                    
         </section>
         <section>
-            <h2>Épisode 2</h2>
-            <audio controls>
-                <source src="horse.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-              </audio> 
-              <h2>Nombre de musiques : {{ podcas|length }}</h2>
-              {% for musique in podcas %}
-                  <h2>{{ musique['musique'] }}</h2>
-                  <audio controls>
-                      <source src="{{ musique['Nom'] }}" type="audio/ogg">
-                  </audio> 
-              {% endfor %}
-              
-
             
         </section>
     </main>

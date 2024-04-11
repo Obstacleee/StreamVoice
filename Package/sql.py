@@ -21,6 +21,54 @@ def add(contenu , dateDebut, ID_thématique , dateFin):
     # Valider les modifications
     cnx.commit()
 
+
+def get_date(id):
+    cursor.execute("USE RSS")
+    # Écrire la requête SQL
+    query = "SELECT DateFin FROM actu WHERE ID = %s"
+
+    # Les données à insérer
+    data = (id)
+    # Exécuter la requête
+    cursor.execute(query, data)
+    table = cursor.fetchall()
+    return table
+
+
+def get_id_from_Contenu(Contenu):
+    cursor.execute("USE RSS")
+    # Écrire la requête SQL
+    query = "SELECT ID FROM actu WHERE Contenu = %s"
+
+    # Les données à insérer
+    data = (Contenu)
+    # Exécuter la requête
+    cursor.execute(query, data)
+    table = cursor.fetchall()
+    return table
+
+
+def get_Contenu_from_id(ID):
+    cursor.execute("USE RSS")
+    # Écrire la requête SQL
+    query = "SELECT Contenu FROM actu WHERE ID = %s"
+
+    # Les données à insérer
+    data = (ID)
+    # Exécuter la requête
+    cursor.execute(query, data)
+    table = cursor.fetchall()
+    return table
+
+
+def get_article():
+    cursor.execute("USE RSS")
+    query = "SELECT id, DateFin FROM actu ORDER BY DateFin DESC;"
+    cursor.execute(query)
+    table = cursor.fetchall()
+    return table
+
+
 def get(id):
     cursor.execute("USE RSS")
     # Écrire la requête SQL
@@ -31,5 +79,5 @@ def get(id):
     # Exécuter la requête
     cursor.execute(query, data)
     table = cursor.fetchall()
-    print(table)
+    return table
 
