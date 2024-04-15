@@ -1,40 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mon Podcast</title>
+    <title>HugoEncrypt</title>
     <link href='/static/style.css' rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Bienvenue sur HugoEncrypt</h1>
         <form action="" method="POST">
-            <input type="text" id="search" name="search" placeholder="Rechercher">
-            <select id="lang" name="lang">
-                <option value="fr">All</option>
-                <option value="en">Anglais</option>
-                <option value="all">Français</option>
-            </select>
+            <input type="date" id="search" name="search">
             <button type="submit">Rechercher</button>
         </form>
     </header>
     <main>
-
         <section>
             {% for podcast in sql %}
-            <h2>Podcast du : {{ podcast[1].strftime("%d %B %Y") }}</h2>
-                <audio controls>
-                    <source src="{{podcast[0]}}" type="audio/ogg">
-                    Your browser does not support the audio element.
-                </audio> 
+            <h2>Podcast du : {{ podcast[1].strftime("%d %B %Y")}}  à 12h00 </h2>
+            <audio id="podcast" controls>
+                <source src="https://www.youtube.com/embed/so4tzq-RvQE" type="audio/mpeg">
+                Votre navigateur ne prend pas en charge l'élément audio.
+            </audio> 
             {% endfor %}
-                    
-        </section>
-        <section>
             
         </section>
+        <section class="visualisation">
+            <canvas id="visualisationCanvas"></canvas>
+        </section>
     </main>
-    <footer>
-        <p>© 2024 Mon Podcast</p>
+    <footer class="footer">
+        <p>© 2024 HugoEncrypt</p>
     </footer>
+
+    <script>
+        // Obtenir une référence au contexte audio
+        var audio = document.getElementById('podcast');
+        var canvas = document.getElementById('visualisationCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // Définir la taille du canvas
+        canvas.width = window.innerWidth;
+        canvas.height = 200;
+
+        // Analyser le flux audio
+        var analyser = audio.context.createAnalyser();
+        var source = audio.context.createMediaElementSource(audio);
+        source.connect(analyser);
+        analyser.connect(audio.context.destination);
+
+        // Définir la fréquence de mise à jour de la visualisation
+        var frameInterval = 30;
+
+        // Fonction de mise à jour de la visualisation
+        function updateVisualisation() {
+            requestAnimationFrame(updateVisualisation);
+
+            // Obtenir les données audio
+            var freqByteData = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteFrequencyData(freqByteData);
+
+            // Effacer le canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dessiner les barres de visualisation
+            var barWidth = (canvas.width / analyser.frequencyBinCount) * 2.5;
+            var barHeight;
+            var x = 0;
+
+            for (var i = 0; i < analyser.frequencyBinCount; i++) {
+                barHeight = freqByteData[i] / 2;
+
+                ctx.fillStyle = 'rgb(52, 152, 219)';
+                ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+
+                x += barWidth + 1;
+            }
+        }
+
+        // Démarrer la visualisation
+        updateVisualisation();
+    </script>
 </body>
 </html>

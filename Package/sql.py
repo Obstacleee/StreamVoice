@@ -1,7 +1,7 @@
 import mysql.connector
 
-cnx = mysql.connector.connect(user='admin', password='adminadmin',
-                              host='dbactu.cfwaimucg5lz.eu-west-3.rds.amazonaws.com')
+cnx = mysql.connector.connect(user='yourss', password='rssTMTC31@',
+                              host='mysql-yourss.alwaysdata.net')
 cursor = cnx.cursor()
 
 def connection():
@@ -9,7 +9,7 @@ def connection():
     return cnx
 
 def add(contenu , dateDebut, ID_thématique , dateFin):
-    cursor.execute("USE RSS")
+    cursor.execute("USE yourss_db")
     # Écrire la requête SQL
     query = "INSERT INTO actu (Contenu , DateDébut , ID_Thématique , DateFin) VALUES (%s , %s , %s, %s)"
 
@@ -23,7 +23,7 @@ def add(contenu , dateDebut, ID_thématique , dateFin):
 
 
 def get_date(id):
-    cursor.execute("USE RSS")
+    cursor.execute("USE yourss_db")
     # Écrire la requête SQL
     query = "SELECT DateFin FROM actu WHERE ID = %s"
 
@@ -36,7 +36,7 @@ def get_date(id):
 
 
 def get_id_from_Contenu(Contenu):
-    cursor.execute("USE RSS")
+    cursor.execute("USE yourss_db")
     # Écrire la requête SQL
     query = "SELECT ID FROM actu WHERE Contenu = %s"
 
@@ -49,7 +49,7 @@ def get_id_from_Contenu(Contenu):
 
 
 def get_Contenu_from_id(ID):
-    cursor.execute("USE RSS")
+    cursor.execute("USE yourss_db")
     # Écrire la requête SQL
     query = "SELECT Contenu FROM actu WHERE ID = %s"
 
@@ -62,7 +62,7 @@ def get_Contenu_from_id(ID):
 
 
 def get_article():
-    cursor.execute("USE RSS")
+    cursor.execute("USE yourss_db")
     query = "SELECT id, DateFin FROM actu ORDER BY DateFin DESC;"
     cursor.execute(query)
     table = cursor.fetchall()
@@ -70,7 +70,7 @@ def get_article():
 
 
 def get(id):
-    cursor.execute("USE RSS")
+    cursor.execute("USE yourss_db")
     # Écrire la requête SQL
     query = "SELECT * FROM actu WHERE ID_Thématique = %s"
 
@@ -80,4 +80,3 @@ def get(id):
     cursor.execute(query, data)
     table = cursor.fetchall()
     return table
-

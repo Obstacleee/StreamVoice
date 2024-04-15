@@ -10,10 +10,10 @@ dict_theme = [
     {"Catégorie":"5", "Lien":"https://www.lemonde.fr/culture/rss_full.xml"}
 ]
 
-# for categorie in dict_theme: 
-#     a ,c ,d= scrapper.rss_collect(categorie["Lien"])
-#     sql.add(a,c,categorie["Catégorie"] , d)
-TTS2.Text_to_spech(26)
+for categorie in dict_theme: 
+    a ,c ,d= scrapper.rss_collect(categorie["Lien"])
+    sql.add(a,c,categorie["Catégorie"] , d)
+# TTS2.Text_to_spech(26)
 #sql.get(["4"])
 # cloud.download("22.mp3", "22.mp3")
 #t= sql.get_article()

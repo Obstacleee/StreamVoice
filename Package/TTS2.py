@@ -1,9 +1,6 @@
-from asyncio import sleep
-import pyttsx3
+import pyttsx3 , os 
 from Package import sql
 from Package import cloud
-import os 
-import time
 
 def Text_to_spech(id):
     texte = sql.get_Contenu_from_id([id])
