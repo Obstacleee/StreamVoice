@@ -22,7 +22,8 @@ def podcast():
 
 
    article_id_date = sql.get_article()
-   date_last = sql.get_date([16])
+   date_last = sql.get_date([1])
+   print(date_last)
    date_last = date_last[0][0]
    
 
