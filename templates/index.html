@@ -112,7 +112,7 @@
       {% for podcast in sql %}
       <h2>Podcast du : {{ podcast[1].strftime("%d %B %Y")}} à 12h00</h2>
       <audio id="podcast" controls>
-        <source src="https://cdn.discordapp.com/attachments/1128404473396613152/1229413312370839562/22.mp3?ex=662f975f&is=661d225f&hm=e28d9b9c90faf022b333b611db4d65a6335e88194f38c3e4516e41e8e03477ef&" type="audio/wav">
+        <source src="{{ podcast[2] }}" type="audio/wav">
         Votre navigateur ne prend pas en charge l'élément audio.
       </audio>
       {% endfor %}

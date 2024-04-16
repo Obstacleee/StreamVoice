@@ -21,41 +21,41 @@ def test():
 def podcast():
 
 
-   article_id_date = sql.get_article()
-   date_last = sql.get_date([1])
-   print(date_last)
-   date_last = date_last[0][0]
+    article_id_date_lien = sql.get_article()
+    date_last = sql.get_last_date()
+    date_last = date_last[0][2]
+    print(date_last)
    
 
    # Conversion de la date en chaîne de caractères
 
-   date_last = date_last.strftime("%d %B %Y")
+    date_last = date_last.strftime("%d %B %Y")
 
    
    #recherche = request.form.get("search")
 
-   date_search_min  = request.form.get("search")
+    date_search_min  = request.form.get("search")
 
-   if date_search_min:
+    if date_search_min:
     
     # Convertir la chaîne de date en objet datetime
-    try:
+        try:
         
-        date_search_min  = dt.strptime(date_search_min , "%Y-%m-%d")
+            date_search_min  = dt.strptime(date_search_min , "%Y-%m-%d")
 
-        date_search_min = int(date_search_min.timestamp())
+            date_search_min = int(date_search_min.timestamp())
 
-        date_search_max = date_search_min + 86400
+            date_search_max = date_search_min + 86400
 
         # Effectuer une recherche ou une action basée sur la date_object
-    except ValueError:
+        except ValueError:
         
         # Gérer l'erreur si la chaîne de date n'est pas au format attendu
-        print("Format de date incorrect.")
+            print("Format de date incorrect.")
 
-   podcast_choisi = []
+    podcast_choisi = []
 
-   for podcast in article_id_date:
+    for podcast in article_id_date_lien:
 
       if date_search_min:
 
@@ -75,10 +75,10 @@ def podcast():
 
       else:
           
-          podcast_choisi = article_id_date
+          podcast_choisi = article_id_date_lien
 
-
-   return render_template("index.html",  date_last=date_last , sql=podcast_choisi)
+    print(podcast_choisi)
+    return render_template("index.html",  date_last=date_last , sql=podcast_choisi)
 
 if __name__ == '__main__':
 

@@ -8,13 +8,13 @@ def connection():
 
     return cnx
 
-def add(contenu , dateDebut, ID_thématique , dateFin):
+def add(contenu , dateDebut, ID_thématique , dateFin , lien_audio):
     cursor.execute("USE yourss_db")
     # Écrire la requête SQL
-    query = "INSERT INTO actu (Contenu , DateDébut , ID_Thématique , DateFin) VALUES (%s , %s , %s, %s)"
+    query = "INSERT INTO actu (Contenu , DateDébut , ID_Thématique , DateFin , lien_audio) VALUES (%s , %s , %s, %s , %s)"
 
     # Les données à insérer
-    data = (contenu , dateDebut , ID_thématique , dateFin)
+    data = (contenu , dateDebut , ID_thématique , dateFin , lien_audio)
     # Exécuter la requête
     cursor.execute(query, data)
 
@@ -22,15 +22,14 @@ def add(contenu , dateDebut, ID_thématique , dateFin):
     cnx.commit()
 
 
-def get_date(id):
+def get_last_date():
     cursor.execute("USE yourss_db")
     # Écrire la requête SQL
-    query = "SELECT DateFin FROM actu WHERE ID = %s"
+    query = "SELECT * FROM `actu` ORDER BY `actu`.`DateFin` DESC LIMIT 1"
 
-    # Les données à insérer
-    data = (id)
+    
     # Exécuter la requête
-    cursor.execute(query, data)
+    cursor.execute(query)
     table = cursor.fetchall()
     return table
 
@@ -63,7 +62,7 @@ def get_Contenu_from_id(ID):
 
 def get_article():
     cursor.execute("USE yourss_db")
-    query = "SELECT id, DateFin FROM actu ORDER BY DateFin DESC;"
+    query = "SELECT id, DateFin, lien_audio FROM actu ORDER BY DateFin DESC;"
     cursor.execute(query)
     table = cursor.fetchall()
     return table
