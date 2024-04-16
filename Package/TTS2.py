@@ -6,7 +6,7 @@ import requests    # Library for making HTTP requests
 import openai      # Library for interacting with OpenAI API
 import time
 
-openai_api_key = "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"
+openai_api_key = "API KEY"
     
 def text_to_speech(text, voice='alloy'):
     """

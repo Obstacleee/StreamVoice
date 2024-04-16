@@ -1,0 +1,409 @@
+Polynomial functions
+mc-TY-polynomial-2009-1
+Many common functions are polynomial functions. In this unit we describe polynomial functions
+and look at some of their properties.
+In order to master the techniques explained here it is vital that you undertake plenty of practice
+exercises so that they become second nature.
+After reading this text, and/or viewing the video tutorial on this topic, you should be able to:
+• recognise when a rule describes a polynomial function, and write down the degree of the
+polynomial,
+• recognize the typical shapes of the graphs of polynomials, of degree up to 4,
+• understand what is meant by the multiplicity of a root of a polynomial,
+• sketch the graph of a polynomial, given its expression as a product of linear factors.
+Contents
+1. Introduction 2
+2. What is a polynomial? 2
+3. Graphs of polynomial functions 3
+4. Turning points of polynomial functions 6
+5. Roots of polynomial functions 7
+www.mathcentre.ac.uk 1 c mathcentre 2009
+1. Introduction
+A polynomial function is a function such as a quadratic, a cubic, a quartic, and so on, involving
+only non-negative integer powers of x. We can give a general defintion of a polynomial, and
+define its degree.
+2. What is a polynomial?
+A polynomial of degree n is a function of the form
+f(x) = anx
+n + an−1x
+n−1 + . . . + a2x
+2 + a1x + a0
+where the a’s are real numbers (sometimes called the coefficients of the polynomial). Although
+this general formula might look quite complicated, particular examples are much simpler. For
+example,
+f(x) = 4x
+3 − 3x
+2 + 2
+is a polynomial of degree 3, as 3 is the highest power of x in the formula. This is called a cubic
+polynomial, or just a cubic. And
+f(x) = x
+7 − 4x
+5 + 1
+is a polynomial of degree 7, as 7 is the highest power of x. Notice here that we don’t need every
+power of x up to 7: we need to know only the highest power of x to find out the degree. An
+example of a kind you may be familiar with is
+f(x) = 4x
+2 − 2x − 4
+which is a polynomial of degree 2, as 2 is the highest power of x. This is called a quadratic.
+Functions containing other operations, such as square roots, are not polynomials. For example,
+f(x) = 4x
+3 +
+√
+x − 1
+is not a polynomial as it contains a square root. And
+f(x) = 5x
+4 − 2x
+2 + 3/x
+is not a polynomial as it contains a ‘divide by x’.
+Key Point
+A polynomial is a function of the form
+f(x) = anx
+n + an−1x
+n−1 + . . . + a2x
+2 + a1x + a0 .
+The degree of a polynomial is the highest power of x in its expression. Constant (non-zero)
+polynomials, linear polynomials, quadratics, cubics and quartics are polynomials of degree 0, 1,
+2 , 3 and 4 respectively. The function f(x) = 0 is also a polynomial, but we say that its degree
+is ‘undefined’.
+www.mathcentre.ac.uk 2 c mathcentre 2009
+3. Graphs of polynomial functions
+We have met some of the basic polynomials already. For example, f(x) = 2 is a constant function
+and f(x) = 2x + 1 is a linear function.
+f(x)
+x
+1
+2 f(x) = 2
+f(x) = 2x + 1
+It is important to notice that the graphs of constant functions and linear functions are always
+straight lines.
+We have already said that a quadratic function is a polynomial of degree 2. Here are some
+examples of quadratic functions:
+f(x) = x
+2
+, f(x) = 2x
+2
+, f(x) = 5x
+2
+.
+What is the impact of changing the coefficient of x
+2 as we have done in these examples? One
+way to find out is to sketch the graphs of the functions.
+f(x)
+x
+f(x) = x
+2
+f(x) = 2x
+2
+f(x) = 5x
+2
+You can see from the graph that, as the coefficient of x
+2
+is increased, the graph is stretched
+vertically (that is, in the y direction).
+What will happen if the coefficient is negative? This will mean that all of the positive f(x) values
+will now become negative. So what will the graphs of the functions look like? The functions are
+now
+f(x) = −x
+2
+, f(x) = −2x
+2
+, f(x) = −5x
+2
+.
+www.mathcentre.ac.uk 3 c mathcentre 2009
+f(x)
+x
+f(x) = −x
+2
+f(x) = −2x
+2
+f(x) = −5x
+2
+Notice here that all of these graphs have actually been reflected in the x-axis. This will always
+happen for functions of any degree if they are multiplied by −1.
+Now let us look at some other quadratic functions to see what happens when we vary the
+coefficient of x, rather than the coefficient of x
+2
+. We shall use a table of values in order to plot
+the graphs, but we shall fill in only those values near the turning points of the functions.
+x −5 −4 −3 −2 −1 0 1 2
+x
+2 + x 6 2 0 0 2 6
+x
+2 + 4x 0 −3 −4 −3 0
+x
+2 + 6x −5 −8 −9 −8 −5
+You can see the symmetry in each row of the table, demonstrating that we have concentrated
+on the region around the turning point of each function. We can now use these values to plot
+the graphs.
+f(x)
+x
+f(x) = x
+2
+ + 4x
+f(x) = x
+2
+ + 6x
+f(x) = x
+2
+ + x
+As you can see, increasing the positive coefficient of x in this polynomial moves the graph down
+and to the left.
+www.mathcentre.ac.uk 4 c mathcentre 2009
+What happens if the coefficient of x is negative?
+x −2 −1 0 1 2 3 4 5
+x
+2 − x 6 2 0 0 2 6
+x
+2 − 4x 0 −3 −4 −3 0
+x
+2 − 6x −5 −8 −9 −8 −5
+Again we can use these tables of values to plot the graphs of the functions.
+f(x)
+x
+f(x) = x
+2 − 4x
+f(x) = x
+2 − 6x
+f(x) = x
+2 − x
+As you can see, increasing the negative coefficient of x (in absolute terms) moves the graph
+down and to the right.
+So now we know what happens when we vary the x
+2
+coefficient, and what happens when we
+vary the x coefficient. But what happens when we vary the constant term at the end of our
+polynomial? We already know what the graph of the function f(x) = x
+2 + x looks like, so how
+does this differ from the graph of the functions f(x) = x
+2 + x + 1, or f(x) = x
+2 + x + 5, or
+f(x) = x
+2 + x − 4? As usual, a table of values is a good place to start.
+x −2 −1 0 1 2
+x
+2 + x 2 0 0 2 6
+x
+2 + x + 1 3 1 1 3 7
+x
+2 + x + 5 7 5 5 7 11
+x
+2 + x − 4 −2 −4 −4 −2 2
+Our table of values is particularly easy to complete since we can use our answers from the x
+2 +x
+column to find everything else. We can use these tables of values to plot the graphs of the
+functions.
+www.mathcentre.ac.uk 5 c mathcentre 2009
+f(x)
+x
+f(x) = x
+2
+ + x + 5
+f(x) = x
+2
+ + x − 4
+f(x) = x
+2
+ + x + 1
+f(x) = x
+2
+ + x
+As we can see straight away, varying the constant term translates the x
+2 + x curve vertically.
+Furthermore, the value of the constant is the point at which the graph crosses the f(x) axis.
+4. Turning points of polynomial functions
+A turning point of a function is a point where the graph of the function changes from sloping
+downwards to sloping upwards, or vice versa. So the gradient changes from negative to positive,
+or from positive to negative. Generally speaking, curves of degree n can have up to (n − 1)
+turning points.
+For instance, a quadratic has only one turning
+point.
+A cubic could have up to two turning points, and
+so would look something like this.
+However, some cubics have fewer turning points: for
+example f(x) = x
+3
+. But no cubic has more than two
+turning points.
+www.mathcentre.ac.uk 6 c mathcentre 2009
+In the same way, a quartic could have up to three
+turning turning points, and so would look something like this.
+Again, some quartics have fewer turning points, but none has more.
+Key Point
+A polynomial of degree n can have up to (n − 1) turning points.
+5. Roots of polynomial functions
+You may recall that when (x − a)(x − b) = 0, we know that a and b are roots of the function
+f(x) = (x − a)(x − b). Now we can use the converse of this, and say that if a and b are roots,
+then the polynomial function with these roots must be f(x) = (x − a)(x − b), or a multiple of
+this.
+For example, if a quadratic has roots x = 3 and x = −2, then the function must be f(x) =
+(x−3)(x+2), or a constant multiple of this. This can be extended to polynomials of any degree.
+For example, if the roots of a polynomial are x = 1, x = 2, x = 3, x = 4, then the function must
+be
+f(x) = (x − 1)(x − 2)(x − 3)(x − 4),
+or a constant multiple of this.
+Let us also think about the function f(x) = (x − 2)2
+. We can see straight away that x − 2 = 0,
+so that x = 2. For this function we have only one root. This is what we call a repeated root,
+and a root can be repeated any number of times. For example, f(x) = (x − 2)3
+(x + 4)4 has
+a repeated root x = 2, and another repeated root x = −4. We say that the root x = 2 has
+multiplicity 3, and that the root x = −4 has multiplicity 4.
+The useful thing about knowing the multiplicity of a root is that it helps us with sketching the
+graph of the function. If the multiplicity of a root is odd then the graph cuts through the x-axis
+at the point (x, 0). But if the multiplicity is even then the graph just touches the x-axis at the
+point (x, 0).
+For example, take the function
+f(x) = (x − 3)2
+(x + 1)5
+(x − 2)3
+(x + 2)4
+.
+• The root x = 3 has multiplicity 2, so the graph touches the x-axis at (3, 0).
+www.mathcentre.ac.uk 7 c mathcentre 2009
+• The root x = −1 has multiplicity 5, so the graph crosses the x-axis at (−1, 0).
+• The root x = 2 has multiplicity 3, so the graph crosses the x-axis at (2, 0).
+• The root x = −2 has multiplicity 4, so the graph touches the x-axis at (−2, 0).
+To take another example, suppose we have the function f(x) = (x − 2)2
+(x + 1). We can see
+that the largest power of x is 3, and so the function is a cubic. We know the possible general
+shapes of a cubic, and as the coefficient of x
+3
+is positive the curve must generally increase to
+the right and decrease to the left. We can also see that the roots of the function are x = 2 and
+x = −1. The root x = 2 has even multiplicity and so the curve just touches the x-axis here,
+whilst x = −1 has odd multiplicity and so here the curve crosses the x-axis. This means we can
+sketch the graph as follows.
+2
+−1
+x
+f (x)
+Key Point
+The number a is a root of the polynomial function f(x) if f(a) = 0, and this occurs when (x−a)
+is a factor of f(x).
+If a is a root of f(x), and if (x − a)
+m is a factor of f(x) but (x − a)
+m+1 is not a factor, then we
+say that the root has multiplicity m.
+At a root of odd multiplicity the graph of the function crosses the x-axis, whereas at a root of
+even multiplicity the graph touches the x-axis.
+Exercises
+1. What is a polynomial function?
+2. Which of the following functions are polynomial functions?
+(a) f(x) = 4x
+2 + 2 (b) f(x) = 3x
+3 − 2x +
+√
+x (c) f(x) = 12 − 4x
+5 + 3x
+2
+(d) f(x) = sin x + 1 (e) f(x) = 3x
+12 − 2/x (f) f(x) = 3x
+11 − 2x
+12
+www.mathcentre.ac.uk 8 c mathcentre 2009
+3. Write down one example of each of the following types of polynomial function:
+(a) cubic (b) linear (c) quartic (d) quadratic
+4. Sketch the graphs of the following functions on the same axes:
+(a) f(x) = x
+2
+(b) f(x) = 4x
+2
+(c) f(x) = −x
+2
+(d) f(x) = −4x
+2
+5. Consider a function of the form f(x) = x
+2 +ax, where a represents a real number. The graph
+of this function is represented by a parabola.
+(a) When a > 0, what happens to the parabola as a increases?
+(b) When a < 0, what happens to the parabola as a decreases?
+6. Write down the maximum number of turning points on the graph of a polynomial function of
+degree:
+(a) 2 (b) 3 (c) 12 (d) n
+7. Write down a polynomial function with roots:
+(a) 1, 2, 3, 4 (b) 2, −4 (c) 12, −1, −6
+8. Write down the roots and identify their multiplicity for each of the following functions:
+(a) f(x) = (x − 2)3
+(x + 4)4
+(b) f(x) = (x − 1)(x + 2)2
+(x − 4)3
+9. Sketch the following functions:
+(a) f(x) = (x − 2)2
+(x + 1) (b) f(x) = (x − 1)2
+(x + 3)
+Answers
+1. A polynomial function is a function that can be written in the form
+f(x) = anx
+n + an−1x
+n−1 + an−2x
+n−2 + . . . + a2x
+2 + a1x + a0 ,
+where each a0, a1, etc. represents a real number, and where n is a natural number (including 0).
+2.
+(a) f(x) = 4x
+2 + 2 is a polynomial
+(b) f(x) = 3x
+3 − 2x +
+√
+x is not a polynomial, because of √
+x
+(c) f(x) = 12 − 4x
+5 + 3x
+2
+is a polynomial
+(d) f(x) = sin x + 1 is not a polynomial, because of sin x
+(e) f(x) = 3x
+12 − 2/x is not a polynomial, because of 2/x
+(f) f(x) = 3x
+11 − 2x
+12 is a polynomial
+3.
+(a) The highest power of x must be 3, so examples might be f(x) = x
+3 − 2x + 1 or f(x) = x
+3 − 2.
+(b) The highest power of x must be 1, so examples might be f(x) = x or f(x) = 6x − 5.
+(c) The highest power of x must be 4, so examples might be f(x) = x
+4 − 3x
+3 + 2x or f(x) =
+x
+4 − x − 5.
+(d) The highest power of x must be 2, so examples might be f(x) = x
+2 or f(x) = x
+2 − 5.
+4.
+www.mathcentre.ac.uk 9 c mathcentre 2009
+f(x)
+x
+f(x) = 4x
+2
+f(x) = −4x
+2
+f(x) = x
+2
+f(x) = −x
+2
+5.
+(a) When a > 0, the parabola moves down and to the left as a increases.
+(b) When a < 0, the parabola moves down and to the right as a decreases.
+6.
+(a) 1 turning point (b) 2 turning points (c) 11 turning points
+(d) (n − 1) turning points.
+7.
+(a) f(x) = (x − 1)(x − 2)(x − 3)(x − 4) or a multiple
+(b) f(x) = (x − 2)(x + 4) or a multiple
+(c) f(x) = (x − 12)(x + 1)(x + 6) or a multiple.
+8.
+(a) x = 2 odd multiplicity
+x = −4 even multiplicity
+(b) x = 1 odd multiplicity
+x = −2 even multiplicity
+x = 4 odd multiplicity
+www.mathcentre.ac.uk 10 c mathcentre 2009
+9)
+f(x)
+x
+f(x) = (x − 2)2
+(x + 1)
+f(x) = (x − 1)2
+(x + 3)
+www.mathcentre.ac.uk 11 c mathcentre 2009
