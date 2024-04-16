@@ -1,11 +1,12 @@
 import requests
 from discord import SyncWebhook, File
 import time
+import os
 
-webhook_link = 'https://discord.com/api/webhooks/1229419212444008478/QrQic988XoqowRULvfX5V7EVEetI3WL0tQoJ5XO923hMlF8CV7zoCNlV1dsd1tf28M_8'
+webhook = os.getenv('WEEBHOOK')
 
 def send_and_get_file_link(file_path):
-    webhook = SyncWebhook.from_url(webhook_link)
+    webhook = SyncWebhook.from_url(webhook)
 
     try:
         with open(file_path, 'rb') as f:

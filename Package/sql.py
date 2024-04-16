@@ -1,7 +1,12 @@
 import mysql.connector
+import os
 
-cnx = mysql.connector.connect(user='yourss', password='rssTMTC31@',
-                              host='mysql-yourss.alwaysdata.net')
+user_bd = os.getenv('USER_BD')
+password_bd = os.getenv('PASSWORD_BD')
+host_bd = os.getenv('HOST_BD')
+
+cnx = mysql.connector.connect(user=user_bd, password=password_bd,
+                              host=host_bd)
 cursor = cnx.cursor()
 
 def connection():
