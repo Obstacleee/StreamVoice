@@ -1,6 +1,7 @@
+import schedule
 from Package import sql 
 from Package import scrapper 
-from Package import cloud
+import time
 from Package import TTS2
 from Package import discord_storage
 dict_theme = [
@@ -11,12 +12,22 @@ dict_theme = [
     {"Catégorie":"5", "Lien":"https://www.lemonde.fr/culture/rss_full.xml"}
 ]
 
-for categorie in dict_theme: 
-    a ,c ,d= scrapper.rss_collect(categorie["Lien"])
-    e = TTS2.Text_to_spech(a)
-    sql.add(a,c,categorie["Catégorie"] , d ,e)
+
 #TTS2.Text_to_spech(26)
 #sql.get(["4"])
 # cloud.download("22.mp3", "22.mp3")
 #t= sql.get_article()
 #response = discord_storage.send_and_get_file_link("static/son/22.mp3")
+#print(sql.get_categorie())
+def job():
+    for categorie in dict_theme: 
+        a ,c ,d= scrapper.rss_collect(categorie["Lien"])
+        e = TTS2.text_to_speech(a)
+        sql.add(a,c,categorie["Catégorie"] , d ,e)
+    return
+
+schedule.every().day.at("12:04").do(job())
+
+while True:
+    schedule.run_pending()
+    time.sleep(5) # wait one minute 

@@ -25,8 +25,15 @@
     form {
       margin-top: 20px;
     }
-
-    input[type="date"] {
+    input[type="categorie"] {
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      background-color: #eee;
+      color: #333;
+      font-size: 16px;
+    }
+    input {
       padding: 10px;
       border-radius: 20px;
       border: none;
@@ -104,13 +111,23 @@
     <h1>Bienvenue sur HugoEncrypt</h1>
     <form action="" method="POST">
       <input type="date" id="search" name="search">
-      <button type="submit">Rechercher</button>
+      
+      <label for="choix">Choisissez une option :</label>
+      
+    <select id="categorie" name="categorie">
+        <option value="">Tout afficher</option>
+      {% for categorie in categorie %}
+        <option value="{{ categorie[0] }}">{{ categorie[1] }}</option>
+      {% endfor %}
+        
+    </select>
+    <button type="submit">Rechercher</button>
     </form>
   </header>
   <main>
     <section>
       {% for podcast in sql %}
-      <h2>Podcast du : {{ podcast[1].strftime("%d %B %Y")}} à 12h00</h2>
+      <h2>Podcast du : {{ podcast[1].strftime("%d %B %Y")}} à 12h00 </h2>
       <audio id="podcast" controls>
         <source src="{{ podcast[2] }}" type="audio/wav">
         Votre navigateur ne prend pas en charge l'élément audio.
@@ -126,53 +143,5 @@
     <p>© 2024 HugoEncrypt</p>
   </footer>
 
-  <script>
-    var audio = document.getElementById('podcast');
-    var canvas = document.getElementById('visualisationCanvas');
-    var ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = 200;
-
-    var analyser = audio.context.createAnalyser();
-    var source = audio.context.createMediaElementSource(audio);
-    source.connect(analyser);
-    analyser.connect(audio.context.destination);
-
-    var frameInterval = 30;
-
-    function updateVisualisation() {
-      requestAnimationFrame(updateVisualisation);
-
-      var freqByteData = new Uint8Array(analyser.frequencyBinCount);
-      analyser.getByteFrequencyData(freqByteData);
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      var barWidth = (canvas.width / analyser.frequencyBinCount) * 2.5;
-      var barHeight;
-      var x = 0;
-
-      for (var i = 0; i < analyser.frequencyBinCount; i++) {
-        barHeight = freqByteData[i] / 2;
-
-        ctx.fillStyle = 'rgb(52, 152, 219)';
-        ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
-
-        x += barWidth + 1;
-      }
-    }
-
-    updateVisualisation();
-
-    // Ajouter un gestionnaire d'événements pour changer la classe CSS lorsque l'audio est joué
-    audio.addEventListener('play', function() {
-      audio.classList.add('playing');
-    });
-
-    audio.addEventListener('pause', function() {
-      audio.classList.remove('playing');
-    });
-  </script>
 </body>
 </html>

@@ -62,16 +62,21 @@ def get_Contenu_from_id(ID):
 
 def get_article():
     cursor.execute("USE yourss_db")
-    query = "SELECT id, DateFin, lien_audio FROM actu ORDER BY DateFin DESC;"
+    query = "SELECT id, DateFin, lien_audio , ID_Thématique FROM actu ORDER BY DateFin DESC;"
     cursor.execute(query)
     table = cursor.fetchall()
     return table
 
-
+def get_categorie():
+    cursor.execute("USE yourss_db")
+    query ="SELECT ID_Thématique, Thématique FROM categorie"
+    cursor.execute(query)
+    table = cursor.fetchall()
+    return table
 def get(id):
     cursor.execute("USE yourss_db")
     # Écrire la requête SQL
-    query = "SELECT * FROM actu WHERE ID_Thématique = %s"
+    query = "SELECT id, DateFin, lien_audio , ID_Thématique FROM actu WHERE ID_Thématique = %s ORDER BY DateFin DESC "
 
     # Les données à insérer
     data = (id)
@@ -79,3 +84,4 @@ def get(id):
     cursor.execute(query, data)
     table = cursor.fetchall()
     return table
+
