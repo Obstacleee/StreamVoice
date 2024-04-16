@@ -6,7 +6,8 @@ import requests    # Library for making HTTP requests
 import openai      # Library for interacting with OpenAI API
 import time
 
-openai_api_key = "API KEY"
+openai_key = os.getenv('OPENAIKEY')
+
     
 def text_to_speech(text, voice='alloy'):
     """
@@ -25,7 +26,7 @@ def text_to_speech(text, voice='alloy'):
     """
     response = requests.post(
         "https://api.openai.com/v1/audio/speech",
-        headers={"Authorization": f"Bearer {openai_api_key}"},
+        headers={"Authorization": f"Bearer {openai_key}"},
         json={"model": "tts-1", "input": text, "voice": voice}
     )
     
@@ -33,7 +34,7 @@ def text_to_speech(text, voice='alloy'):
     if response.status_code != 200:
         response = requests.post(
         "https://api.openai.com/v1/audio/speech",
-        headers={"Authorization": f"Bearer {openai_api_key}"},
+        headers={"Authorization": f"Bearer {openai_key}"},
         json={"model": "tts-1", "input": text, "voice": voice}
     )
         
