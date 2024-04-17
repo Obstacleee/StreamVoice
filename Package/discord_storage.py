@@ -3,10 +3,10 @@ from discord import SyncWebhook, File
 import time
 import os
 
-webhook = os.getenv('WEEEBHOOK')
+webhook = os.getenv('WEEBHOOK')
 
 def send_and_get_file_link(file_path):
-    webhook = os.getenv('WEEEBHOOK')
+    webhook = os.getenv('WEEBHOOK')
     webhook = SyncWebhook.from_url(webhook)
 
     try:
