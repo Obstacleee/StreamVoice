@@ -8,8 +8,7 @@ def rss_collect(feed):
     lien = []
     
     for entry in news_feed.entries:
-        lien.append(entry.link)
-        lien.append(";")
+        
         dateHier = dt.datetime.now()
         date_fin = dt.datetime.now()
         dateHier = int(dateHier.timestamp()) - 86400 
@@ -22,9 +21,13 @@ def rss_collect(feed):
             title = entry.title.replace('\xa0', ' ')
             summary = entry.summary.replace('\xa0', ' ')
 
+            lien.append(entry.link)
+            lien.append(";")
+
             flux_Rss.append(title)
             flux_Rss.append(summary)
             flux_Rss.append("...")
+            
     flux_Rss = ''.join([item for sublist in flux_Rss for item in sublist if item])
     lien = ''.join([item for sublist in lien for item in sublist if item])
 
@@ -32,5 +35,3 @@ def rss_collect(feed):
     return flux_Rss , date_debut , date_fin , lien
 
 
-a , b , c , d = rss_collect("https://www.lemonde.fr/pixels/rss_full.xml")
-print(d)

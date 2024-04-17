@@ -1,7 +1,6 @@
 import schedule
 from Package import sql 
 from Package import scrapper 
-import time
 from Package import TTS2
 from Package import discord_storage
 dict_theme = [
@@ -19,11 +18,13 @@ dict_theme = [
 #t= sql.get_article()
 #response = discord_storage.send_and_get_file_link("static/son/22.mp3")
 #print(sql.get_categorie())
-with open("message.txt", "r", encoding="utf-8") as tmpfile:
-    test = tmpfile.read()
-    TTS2.text_to_speech(test)
+# with open("message.txt", "r", encoding="utf-8") as tmpfile:
+#     test = tmpfile.read()
+#     TTS2.text_to_speech(test)
+def main():
+    for categorie in dict_theme: 
+        a ,c ,d , f= scrapper.rss_collect(categorie["Lien"])
+        e = TTS2.text_to_speech(a)
+        sql.add(a,c,categorie["Catégorie"] , d ,e ,f)
 
-# for categorie in dict_theme: 
-#     a ,c ,d= scrapper.rss_collect(categorie["Lien"])
-#     e = TTS2.text_to_speech(a)
-#     sql.add(a,c,categorie["Catégorie"] , d ,e)
+main()

@@ -12,7 +12,9 @@ app = Flask(__name__)
 @app.route('/', methods=["POST", "GET"])
 def podcast():
     categorie = sql.get_categorie()
+
     article_id_date_lien = sql.get_article()
+    
     date_last = sql.get_last_date()
     date_last = date_last[0][2]  # Assurez-vous que cette ligne extrait correctement la date
 
@@ -22,6 +24,7 @@ def podcast():
     # Initialisation des variables pour la recherche
     date_search_min = request.form.get("search")
     choix_categorie = request.form.get("categorie")
+    print(choix_categorie)
     podcast_choisi = []
 
     if choix_categorie:
