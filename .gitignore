@@ -8,3 +8,4 @@ projetRSS-env
 start.ps1
 setenv.ps1
 start.bat
+active_and_setenv.ps1
