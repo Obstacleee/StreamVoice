@@ -4,7 +4,6 @@ import tempfile    # Library for creating temporary files and directories
 import os          # Library for interacting with the operating system
 import requests    # Library for making HTTP requests
 import openai      # Library for interacting with OpenAI API
-import time
 from pydub import AudioSegment
 
 

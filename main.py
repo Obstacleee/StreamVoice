@@ -1,7 +1,6 @@
-from Package import sql
-from Package import scrapper
 from Package import TTS2
-from Package import discord_storage
+from Package import scrapper
+from Package import sql
 
 dict_theme = [
     {"Catégorie": "1", "Lien": "https://www.lemonde.fr/pixels/rss_full.xml"},
