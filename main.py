@@ -12,7 +12,6 @@ dict_theme = [
 ]
 
 
-
 #sql.get(["4"])
 # cloud.download("22.mp3", "22.mp3")
 #t= sql.get_article()

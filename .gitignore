@@ -8,3 +8,8 @@ projetRSS-env
 start.ps1
 setenv.ps1
 start.bat
+/.idea/Projet-RSS.iml
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml

@@ -17,12 +17,12 @@
   <div class="container my-5">
     <form action="" method="POST" class="row g-3">
       <div class="col-md-6">
-        <label for="search" class="form-label">Date:</label>
+        <label for="search" class="form-label ">Date:</label>
         <input type="date" id="search" name="search" class="form-control">
       </div>
       <div class="col-md-4">
         <label for="categorie" class="form-label">Choisissez une option :</label>
-        <select id="categorie" name="categorie" class="form-select">
+        <select id="categorie" name="categorie" class="form-select --bs-body-color">
           <option value="">Tout afficher</option>
           {% for categories in categorie %}
             <option value="{{ categories[0] }}">{{ categories[1] }}</option>
@@ -31,8 +31,8 @@
 
         </select>
       </div>
-      <div class="col-md-2 align-self-end">
-        <button type="submit" class="btn btn-primary w-100">Rechercher</button>
+      <div class="col-md-2 align-self-end --bs-secondary-bg">
+        <button type="submit" class="btn btn-primary ">Rechercher</button>
       </div>
     </form>
   </div>
@@ -50,8 +50,8 @@
             {% if podcast[4] is none %}
               <p>Aucun lien disponible</p>
             {% else %}
-              <button class="btn btn-primary" onclick="toggleLinks(this)">Afficher les liens</button>
-              <div class="links" style="display: none;">
+              <button class="btn btn-primary col-md-2 align-self-end" onclick="toggleLinks(this)">Afficher les liens</button>
+              <div class="links " style="display: none;">
                 {% for lien in podcast[4].split(';') %}
                   <a href="{{ lien }}" target="_blank">{{ lien | truncate(30, true, '...') }}</a><br>
                 {% endfor %}

@@ -5,45 +5,59 @@ import os          # Library for interacting with the operating system
 import requests    # Library for making HTTP requests
 import openai      # Library for interacting with OpenAI API
 import time
+from pydub import AudioSegment
+
 
 openai_key = os.getenv('OPENAIKEY')
 
-    
-def text_to_speech(text, voice='alloy'):
-    """
-    Converts the provided text to speech using OpenAI's text-to-speech API.
 
-    Parameters:
-    - text (str): The text to be converted to speech.
-    - voice (str, optional): The voice model to be used for the text-to-speech conversion. Defaults to 'alloy'.
+def text_to_speech(texte, voice='alloy'):
+    # If the text is too long, split it in half and synthesize each half separately
+    partie1 = None
+    partie2 = None
+    if len(texte) > 4096:
+        partie1 = texte[:len(texte)//2]
+        partie2 = texte[len(texte)//2:]
 
-    Returns:
-    - str: The file path to the temporary MP3 file containing the speech.
+    if partie2:
 
-    Raises:
-    - Exception: If the request to OpenAI's API fails.
-
-    """
-    response = requests.post(
-        "https://api.openai.com/v1/audio/speech",
-        headers={"Authorization": f"Bearer {openai_key}"},
-        json={"model": "tts-1", "input": text, "voice": voice}
-    )
-    
-    # Raise an exception if the API call was unsuccessful
-    if response.status_code != 200:
         response = requests.post(
-        "https://api.openai.com/v1/audio/speech",
-        headers={"Authorization": f"Bearer {openai_key}"},
-        json={"model": "tts-1", "input": text, "voice": voice}
-    )
-        
+            "https://api.openai.com/v1/audio/speech",
+            headers={"Authorization": f"Bearer {openai_key}"},
+            json={"model": "tts-1", "input": partie1, "voice": voice}
+        )
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as tmpfile:
+            tmpfile.write(response.content)
+            lien1 = tmpfile.name
 
+        response = requests.post(
+            "https://api.openai.com/v1/audio/speech",
+            headers={"Authorization": f"Bearer {openai_key}"},
+            json={"model": "tts-1", "input": partie1, "voice": voice}
+        )
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as tmpfiles:
+            tmpfiles.write(response.content)
+            lien2 = tmpfiles.name
 
-    # Save the speech to a temporary MP3 file and return the file path
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as tmpfile:
-        tmpfile.write(response.content)
-        lien = discord_storage.send_and_get_file_link(tmpfile.name)
-        time.sleep(3)
+        audio1 = AudioSegment.from_file(lien1 , format="mp3")
+        audio2 = AudioSegment.from_file(lien2 , format="mp3")
+        audio = audio1 + audio2
+        audio.export("mp3/audio.mp3",format = "mp3")
+        lien = discord_storage.send_and_get_file_link("mp3/audio.mp3")
         return lien
+    else : 
+        response = requests.post(
+            "https://api.openai.com/v1/audio/speech",
+            headers={"Authorization": f"Bearer {openai_key}"},
+            json={"model": "tts-1", "input": texte, "voice": voice}
+        )
+        # Save the speech to a temporary MP3 file and return the file path
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as tmpfile:
+            tmpfile.write(response.content)
+            lien = discord_storage.send_and_get_file_link(tmpfile.name)
+            return lien
+
+
+    
+    
 
