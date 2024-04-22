@@ -17,5 +17,4 @@ def main():
         e = TTS2.text_to_speech(a)
         sql.add(a, c, categorie["Catégorie"], d, e, f, t)
 
-
 main()

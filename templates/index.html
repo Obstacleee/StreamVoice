@@ -50,12 +50,20 @@
             {% if podcast[4] is none or podcast[5] is none%}
               <p>Aucun lien disponible</p>
             {% else %}
-              <button class="btn btn-primary col-md-2 align-self-end" onclick="toggleLinks(this)">Afficher les liens</button>
+            <div class="text-center">
+              <button class="btn btn-primary col-md-2 align-self-end text-center" onclick="toggleLinks(this)">Afficher les liens</button>
               <div class="links " style="display: none;">
-                {% for lien, titre in zip(podcast[4].split(';'), podcast[5].split(';')) %}
-                <a href="{{ lien }}" target="_blank">{{ titre }}</a><br>
+                <p>Articles :</p>
+                {% for i in range(podcast[4].split(';')|length) %}
+                  {% if podcast[4].split(';')[i] and podcast[5].split(';')[i] %}
+                    <a href="{{ podcast[4].split(';')[i] }}" target="_blank">{{ podcast[5].split(';')[i] }}</a><br>
+                  {% else %}
+                    <a href="{{ podcast[4].split(';')[i] }}" target="_blank">{{ podcast[4].split(';')[i] }}</a><br>
+                  {% endif %}
                 {% endfor %}
               </div>
+            </div>
+
             {% endif %}
           </div>
         </div>
@@ -68,7 +76,7 @@
 
   <footer class="footer bg-light py-3 mt-4">
     <div class="container text-center">
-      <p>© 2024 HugoEncrypt</p>
+      <p>© 2024 YouRSS</p>
     </div>
   </footer>
   <script>

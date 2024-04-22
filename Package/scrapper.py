@@ -33,7 +33,7 @@ def rss_collect(feed):
             
     flux_Rss = ''.join([item for sublist in flux_Rss for item in sublist if item])
     lien = ''.join([item for sublist in lien for item in sublist if item])
-    titres = ''.join([item for sublist in lien for item in sublist if item])
+    titres = ''.join([item for sublist in titres for item in sublist if item])
 
     date_debut = dt.datetime.fromtimestamp(dateHier)
     return flux_Rss , date_debut , date_fin , lien, titres
