@@ -1,64 +1,45 @@
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-}
+    /* Style personnalisé pour le lecteur audio */
+      audio {
+        width: 60%; /* Largeur de 100% */
+        outline-color: #ffffff; /* Supprime la bordure d'outline */
+      }
+    
+      /* Style pour les contrôles audio */
+      audio::-webkit-media-controls-panel {
+        background-color: #303030; /* Couleur de fond */
+        color: #ffffff; /* Couleur du texte */
+      }
+    /* Style personnalisé pour le bouton de pause */
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-pause-button {
+      margin-right: 0.5rem;
+      background-color: #ffffff; /* Couleur du bouton de pause */
+      border-radius: 50%;
+    }
 
-header {
-    background-color: #eee;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    /* Style personnalisé pour le bouton de volume */
+    audio::-webkit-media-controls-mute-button {
+    background-color: #ffffff;
+    border-radius: 50%;
+    }
 
-header h1 {
-    margin: 0;
-}
 
-form {
-    display: flex;
-    align-items: center;
-}
+    /* Style personnalisé pour la poignée de la barre de progression */
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display {
+      color: #ffffff; /* Couleur du texte de la poignée */
+    }
+    audio::-webkit-media-controls-timeline {
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 5px;
+      margin-left: 3%;
+      margin-right: 10px;
+    }
 
-input[type="text"] {
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-select {
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-main {
-    padding: 20px;
-}
-
-audio {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.animation {
-    /* Ajouter des animations ici */
-}
-
-footer.footer {
-    position: static; /* Remplacez "static" par la valeur souhaitée pour régler le problème de chevauchement */
-    background-color: #eee;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-}
+    audio::-webkit-media-controls-volume-slider {
+      background-color: #ffffff;
+      border-radius: 25px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
