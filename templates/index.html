@@ -47,13 +47,13 @@
               <source src="{{ podcast[2] }}" type="audio/wav">
               Votre navigateur ne prend pas en charge l'élément audio.
             </audio>
-            {% if podcast[4] is none %}
+            {% if podcast[4] is none or podcast[5] is none%}
               <p>Aucun lien disponible</p>
             {% else %}
               <button class="btn btn-primary col-md-2 align-self-end" onclick="toggleLinks(this)">Afficher les liens</button>
               <div class="links " style="display: none;">
-                {% for lien in podcast[4].split(';') %}
-                  <a href="{{ lien }}" target="_blank">{{ lien | truncate(30, true, '...') }}</a><br>
+                {% for lien, titre in zip(podcast[4].split(';'), podcast[5].split(';')) %}
+                <a href="{{ lien }}" target="_blank">{{ titre }}</a><br>
                 {% endfor %}
               </div>
             {% endif %}

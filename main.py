@@ -15,7 +15,7 @@ def main():
     for categorie in dict_theme:
         a, c, d, f, t = scrapper.rss_collect(categorie["Lien"])
         e = TTS2.text_to_speech(a)
-        sql.add(a, c, categorie["Catégorie"], d, e, f)
+        sql.add(a, c, categorie["Catégorie"], d, e, f, t)
 
 
 main()
