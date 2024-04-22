@@ -1,11 +1,10 @@
-import  os 
-from Package import discord_storage
-import tempfile    # Library for creating temporary files and directories
-import os          # Library for interacting with the operating system
-import requests    # Library for making HTTP requests
-import openai      # Library for interacting with OpenAI API
+import os  # Library for interacting with the operating system
+import tempfile  # Library for creating temporary files and directories
+
+import requests  # Library for making HTTP requests
 from pydub import AudioSegment
 
+from Package import discord_storage
 
 openai_key = os.getenv('OPENAIKEY')
 
@@ -15,8 +14,8 @@ def text_to_speech(texte, voice='alloy'):
     partie1 = None
     partie2 = None
     if len(texte) > 4096:
-        partie1 = texte[:len(texte)//2]
-        partie2 = texte[len(texte)//2:]
+        partie1 = texte[:len(texte) // 2]
+        partie2 = texte[len(texte) // 2:]
 
     if partie2:
 
@@ -38,13 +37,13 @@ def text_to_speech(texte, voice='alloy'):
             tmpfiles.write(response.content)
             lien2 = tmpfiles.name
 
-        audio1 = AudioSegment.from_file(lien1 , format="mp3")
-        audio2 = AudioSegment.from_file(lien2 , format="mp3")
+        audio1 = AudioSegment.from_file(lien1, format="mp3")
+        audio2 = AudioSegment.from_file(lien2, format="mp3")
         audio = audio1 + audio2
-        audio.export("mp3/audio.mp3",format = "mp3")
+        audio.export("mp3/audio.mp3", format="mp3")
         lien = discord_storage.send_and_get_file_link("mp3/audio.mp3")
         return lien
-    else : 
+    else:
         response = requests.post(
             "https://api.openai.com/v1/audio/speech",
             headers={"Authorization": f"Bearer {openai_key}"},
@@ -55,8 +54,3 @@ def text_to_speech(texte, voice='alloy'):
             tmpfile.write(response.content)
             lien = discord_storage.send_and_get_file_link(tmpfile.name)
             return lien
-
-
-    
-    
-
