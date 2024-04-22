@@ -14,51 +14,58 @@
     </div>
   </header>
 
-  <div class="container my-5">
-    <form action="" method="POST" class="row g-3">
-      <div class="col-md-6">
-        <label for="search" class="form-label ">Date:</label>
-        <input type="date" id="search" name="search" class="form-control">
-      </div>
-      <div class="col-md-4">
-        <label for="categorie" class="form-label">Choisissez une option :</label>
-        <select id="categorie" name="categorie" class="form-select --bs-body-color">
-          <option value="">Tout afficher</option>
-          {% for categories in categorie %}
-            <option value="{{ categories[0] }}">{{ categories[1] }}</option>
-          {% endfor %}
+  <div class="bg-light container-fluid my-3 pb-3">
 
+    <div class="col-md-10">
 
-        </select>
-      </div>
-      <div class="col-md-2 align-self-end --bs-secondary-bg">
-        <button type="submit" class="btn btn-primary ">Rechercher</button>
-      </div>
-    </form>
+      <form action="" method="POST" class="row g-3">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <label for="search" class="form-label ">Date:</label>
+          <input type="date" id="search" name="search" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label for="categorie" class="form-label">Choisissez une option :</label>
+          <select id="categorie" name="categorie" class="form-select --bs-body-color">
+            <option value="">Tout afficher</option>
+            {% for categories in categorie %}
+              <option value="{{ categories[0] }}">{{ categories[1] }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-2 align-self-end --bs-secondary-bg">
+          <button type="submit" class="btn btn-primary ">Rechercher</button>
+        </div>
+      </form>
+    </div>
+
   </div>
 
   <main class="container">
     <section>
       {% for podcast in sql %}
-        <div class="card mb-3">
-          <div class="card-body text-center">
-            <h5 class="card-title">Podcast du : {{ podcast[1].strftime("%d %B %Y") }} à 12h00</h5>
-            <audio controls>
-              <source src="{{ podcast[2] }}" type="audio/wav">
-              Votre navigateur ne prend pas en charge l'élément audio.
-            </audio>
+        <div class="card mb-4 py-2 col-md-10 container-fluid">
+          <div class="card-body">
+            <div class="text-center">
+              <h5 class="card-title">Podcast du : {{ podcast[1].strftime("%d %B %Y") }} à 12h00</h5>
+              <audio controls>
+                <source src="{{ podcast[2] }}" type="audio/wav">
+                Votre navigateur ne prend pas en charge l'élément audio.
+              </audio>
+                <br>
+            </div>
             {% if podcast[4] is none or podcast[5] is none%}
               <p>Aucun lien disponible</p>
             {% else %}
-            <div class="text-center">
-              <button class="btn btn-primary col-md-2 align-self-end text-center" onclick="toggleLinks(this)">Afficher les liens</button>
-              <div class="links " style="display: none;">
+            <button class="btn btn-primary" onclick="toggleLinks(this)">Afficher les articles <br></button>
+              <div class="links text-left" style="display: none;">
+                <br>
                 <p>Articles :</p>
-                {% for i in range(podcast[4].split(';')|length) %}
+                {% for i in range(podcast[4].split(';')|length-1) %}
                   {% if podcast[4].split(';')[i] and podcast[5].split(';')[i] %}
-                    <a href="{{ podcast[4].split(';')[i] }}" target="_blank">{{ podcast[5].split(';')[i] }}</a><br>
+                    <p><strong>Article {{i+1}}</strong> : <a href="{{ podcast[4].split(';')[i] }}" target="_blank">{{ podcast[5].split(';')[i] }}</a></p>
                   {% else %}
-                    <a href="{{ podcast[4].split(';')[i] }}" target="_blank">{{ podcast[4].split(';')[i] }}</a><br>
+                    <a href="{{ podcast[4].split(';')[i] }}" target="_blank">{{ podcast[4].split(';')[i] }}</a>
                   {% endif %}
                 {% endfor %}
               </div>
