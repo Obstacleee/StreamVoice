@@ -12,6 +12,55 @@
     <div class="container text-center">
       <h1 class="text-white">Bienvenue sur <strong>You RSS</strong></h1>
     </div>
+    <style>
+      /* Style personnalisé pour le lecteur audio */
+      audio {
+        width: 60%; /* Largeur de 100% */
+        outline-color: #ffffff; /* Supprime la bordure d'outline */
+      }
+    
+      /* Style pour les contrôles audio */
+      audio::-webkit-media-controls-panel {
+        background-color: #303030; /* Couleur de fond */
+        color: #ffffff; /* Couleur du texte */
+      }
+    /* Style personnalisé pour le bouton de pause */
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-pause-button {
+      background-color: #ffffff; /* Couleur du bouton de pause */
+      border-radius: 50%;
+    }
+
+    /* Style personnalisé pour le bouton de volume */
+    audio::-webkit-media-controls-mute-button {
+    background-color: #ffffff;
+    border-radius: 50%;
+    }
+
+
+    /* Style personnalisé pour la poignée de la barre de progression */
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display {
+      color: #ffffff; /* Couleur du texte de la poignée */
+    }
+    audio::-webkit-media-controls-timeline {
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-color: #0070D2;
+      border-width: 2px;
+      border-style: solid;
+    }
+
+    audio::-webkit-media-controls-volume-slider {
+      background-color: #ffffff;
+      border-radius: 25px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    </style>
   </header>
 
   <div class="bg-light container-fluid my-3 pb-3">
@@ -44,7 +93,7 @@
   <main class="container">
     <section>
       {% for podcast in sql %}
-        <div class="card mb-4 py-2 col-md-10 container-fluid">
+        <div class="card mb-4 py-2 col-md-10 container-fluid bg-light">
           <div class="card-body">
             <div class="text-center">
               <h5 class="card-title">Podcast du : {{ podcast[1].strftime("%d %B %Y") }} à 12h00</h5>
@@ -91,10 +140,10 @@
       var linksDiv = button.nextElementSibling;
       if (linksDiv.style.display === "none") {
         linksDiv.style.display = "block";
-        button.textContent = "Masquer les liens";
+        button.textContent = "Masquer les articles";
       } else {
         linksDiv.style.display = "none";
-        button.textContent = "Afficher les liens";
+        button.textContent = "Afficher les articles";
       }
     }
   </script>
