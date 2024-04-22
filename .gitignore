@@ -7,6 +7,7 @@ projetRSS-env
 .venv
 start.ps1
 setenv.ps1
+active_and_setenv.ps1
 start.bat
 /.idea/Projet-RSS.iml
 /.idea/.gitignore

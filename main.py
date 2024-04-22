@@ -13,7 +13,7 @@ dict_theme = [
 
 def main():
     for categorie in dict_theme:
-        a, c, d, f = scrapper.rss_collect(categorie["Lien"])
+        a, c, d, f, t = scrapper.rss_collect(categorie["Lien"])
         e = TTS2.text_to_speech(a)
         sql.add(a, c, categorie["Catégorie"], d, e, f)
 

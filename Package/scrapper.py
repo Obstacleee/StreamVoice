@@ -6,7 +6,7 @@ def rss_collect(feed):
 
     flux_Rss = []
     lien = []
-    
+    titres = []
     for entry in news_feed.entries:
         
         dateHier = dt.datetime.now()
@@ -24,14 +24,18 @@ def rss_collect(feed):
             lien.append(entry.link)
             lien.append(";")
 
+            titres.append(title)
+            titres.append(";")
+
             flux_Rss.append(title)
             flux_Rss.append(summary)
             flux_Rss.append("...")
             
     flux_Rss = ''.join([item for sublist in flux_Rss for item in sublist if item])
     lien = ''.join([item for sublist in lien for item in sublist if item])
+    titres = ''.join([item for sublist in lien for item in sublist if item])
 
     date_debut = dt.datetime.fromtimestamp(dateHier)
-    return flux_Rss , date_debut , date_fin , lien
+    return flux_Rss , date_debut , date_fin , lien, titres
 
 
