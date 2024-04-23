@@ -1,5 +1,8 @@
 import mysql.connector
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 user_bd = os.getenv('USER_BD')
 password_bd = os.getenv('PASSWORD_BD')

@@ -6,6 +6,10 @@ from pydub import AudioSegment
 
 from Package import discord_storage
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 openai_key = os.getenv('OPENAIKEY')
 
 
