@@ -1,23 +1,20 @@
+from flask import Flask, render_template, request
+from Package import sql
 import datetime
-# Configuration de la locale pour les dates en français
-import locale
 from datetime import datetime as dt
 
-from flask import Flask, render_template, request
-
-from Package import sql
-
+# Configuration de la locale pour les dates en français
+import locale
 locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
 
 app = Flask(__name__)
-
 
 @app.route('/', methods=["POST", "GET"])
 def podcast():
     categorie = sql.get_categorie()
 
     article_id_date_lien = sql.get_article()
-
+    
     date_last = sql.get_last_date()
     date_last = date_last[0][2]  # Assurez-vous que cette ligne extrait correctement la date
 
@@ -27,7 +24,7 @@ def podcast():
     # Initialisation des variables pour la recherche
     date_search_min = request.form.get("search")
     choix_categorie = request.form.get("categorie")
-    print(choix_categorie)
+
     podcast_choisi = []
 
     if choix_categorie:
@@ -43,7 +40,7 @@ def podcast():
             date_search_max = date_search_min + 86400
         except ValueError:
             print("Format de date incorrect.")
-
+    
     if date_search_min and date_search_max:
         for podcast in podcast_categorie:
             podcast_date = podcast[1]
@@ -52,10 +49,9 @@ def podcast():
                 if date_search_min <= podcast_timestamp < date_search_max:
                     podcast_choisi.append(podcast)
     else:
-        podcast_choisi = podcast_categorie
-
+        podcast_choisi= podcast_categorie
+        
     return render_template("index.html", date_last=date_last_str, sql=podcast_choisi, categorie=categorie)
-
 
 if __name__ == '__main__':
     app.run('localhost', 4449, debug=True)

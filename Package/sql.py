@@ -17,7 +17,7 @@ def connection():
     return cnx
 
 def add(contenu , dateDebut, ID_thématique , dateFin , lien_audio , lien_site, titres_articles):
-    cursor.execute("USE yourss_db")
+    cursor.execute("USE streamvoice_bdd")
     # Écrire la requête SQL
     query = "INSERT INTO actu (Contenu , DateDébut , ID_Thématique , DateFin , lien_audio, lien_site, titres_articles) VALUES (%s , %s , %s, %s , %s, %s, %s)"
 
@@ -31,7 +31,7 @@ def add(contenu , dateDebut, ID_thématique , dateFin , lien_audio , lien_site, 
 
 
 def get_last_date():
-    cursor.execute("USE yourss_db")
+    cursor.execute("USE streamvoice_bdd")
     # Écrire la requête SQL
     query = "SELECT * FROM `actu` ORDER BY `actu`.`DateFin` DESC LIMIT 1"
 
@@ -43,7 +43,7 @@ def get_last_date():
 
 
 def get_id_from_Contenu(Contenu):
-    cursor.execute("USE yourss_db")
+    cursor.execute("USE streamvoice_bdd")
     # Écrire la requête SQL
     query = "SELECT ID FROM actu WHERE Contenu = %s"
 
@@ -56,7 +56,7 @@ def get_id_from_Contenu(Contenu):
 
 
 def get_Contenu_from_id(ID):
-    cursor.execute("USE yourss_db")
+    cursor.execute("USE streamvoice_bdd")
     # Écrire la requête SQL
     query = "SELECT Contenu FROM actu WHERE ID = %s"
 
@@ -69,20 +69,20 @@ def get_Contenu_from_id(ID):
 
 
 def get_article():
-    cursor.execute("USE yourss_db")
+    cursor.execute("USE streamvoice_bdd")
     query = "SELECT id, DateFin, lien_audio , ID_Thématique , lien_site, titres_articles FROM actu ORDER BY DateFin DESC;"
     cursor.execute(query)
     table = cursor.fetchall()
     return table
 
 def get_categorie():
-    cursor.execute("USE yourss_db")
+    cursor.execute("USE streamvoice_bdd")
     query ="SELECT ID_Thématique, Thématique FROM categorie"
     cursor.execute(query)
     table = cursor.fetchall()
     return table
 def get(id):
-    cursor.execute("USE yourss_db")
+    cursor.execute("USE streamvoice_bdd")
     # Écrire la requête SQL
     query = "SELECT id, DateFin, lien_audio , ID_Thématique , lien_site, titres_articles FROM actu WHERE ID_Thématique = %s ORDER BY DateFin DESC "
 
