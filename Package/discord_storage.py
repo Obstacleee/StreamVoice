@@ -1,6 +1,4 @@
-import requests
 from discord import SyncWebhook, File
-import time
 import os
 
 webhook = os.getenv('WEEBHOOK')
