@@ -1,1 +1,1 @@
-gdgg
+Du 9 au 23 avril 2024, une durée de cinq semaines, nous, les étudiants en troisième année de Bachelor à l'IA School de Toulouse, avons conçu un site web. Ce site présente, sous format audio, les flux RSS d'informations du journal "Le Monde". Ce projet s'inscrit dans l'application pratique de notre formation en analyse de données.
