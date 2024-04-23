@@ -43,3 +43,9 @@
       padding-left: 8px;
       padding-right: 8px;
     }
+
+    #logo {
+      border-radius: 10%;
+      border: 1px;
+      border-color: #0c6dfc;
+    }
