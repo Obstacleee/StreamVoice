@@ -38,47 +38,86 @@
 <!-- Contenu de la page -->
 <!-- Contenu de la page -->
 <div class="container mt-4">
-    <h1 class="text-primary">Présentation de StreamVoice</h1>
+  <h1 class="card-title text-success text-center mb-5">Présentation de StreamVoice</h1>
 
     <div class="row">
-        <div class="col-md-6">
+        <div>
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="card-title text-success">I - Contexte</h2>
-                        <p class="card-text">Du 9 au 23 avril 2024, une durée de cinq semaines, nous, les étudiants en troisième année de Bachelor à l'IA School de Toulouse (Johann Cazenave, Lucas Delon, Lucas Sanhes, Mélissa Tchamdja, Dorian Mercier, Joseph Midiburo), avons conçu un site web. Ce site présente, sous format audio, les flux RSS d'informations du journal "Le Monde". Ce projet s'inscrit dans l'application pratique de notre formation en analyse de données.</p>
+                    <h2 class="text-primary">I - Contexte</h2>
+                      <p class="card-text">Du 9 au 23 avril 2024, une durée de cinq semaines, nous, les étudiants en troisième année de Bachelor à l'IA School de Toulouse (Johann Cazenave, Lucas Delon, Lucas Sanhes, Mélissa Tchamdja, Dorian Mercier, Joseph Midiburo), avons conçu un site web. Ce site présente, sous format audio, les flux RSS d'informations du journal "Le Monde". Ce projet s'inscrit dans l'application pratique de notre formation en analyse de données.</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div>
             <div class="card mb-4">
                 <div class="card-body">
-                  <h2 class="card-title text-success">II - Matériels et Méthodes</h2>
+                  <h2 class="text-primary">II - Matériels et Méthodes</h2>
                   <ul>
                     <h3 class="card-subtitle mb-2 text-muted">II.1. Données</h3>
                       <p class="card-text">Pour réaliser ce projet, nous nous sommes appuyés sur les flux RSS du journal "Le Monde". Vous pouvez consulter ces données à partir des <a href="https://www.lemonde.fr/actualite-medias/article/2019/08/12/les-flux-rss-du-monde-fr_5498778_3236.html" target="_blank">Flux RSS de Le Monde</a>. <br> Ces informations sont stockées dans une base de données MySQL.</p>
                     <h3 class="card-subtitle mb-2 text-muted">II.2. OpenAI API TTS1</h3>
-                    <!-- Ajoutez le contenu de cette section ici -->
+                      <p class="card-text">Dans la réalisation de ce projet, Nous utiliserons l’API d’OpenAI pour récupérer les données des flux RSS à chaque actualisation grâce à l’intelligence artificielle.<br>Pour la conversion des flux ress en audio, nous utiliserons un "text-to-speech" qui est une technologie qui convertit le texte écrit en parole vocale.</p>
                     <h3 class="card-subtitle mb-2 text-muted">II.3. Modules</h3>
-                    <!-- Ajoutez le contenu de cette section ici -->
-                  </ul>
+                      <p class="card-text">Divers librairies et packages python ont été utilisés dans le cadre de ce projet : scrapper.py, sql.py, TTS2.py, mysql.connector.</p>
+                      <h3 class="card-subtitle mb-2 text-muted">II.3. Site</h3>
+                      <p class="card-text">Le site web lui a été développé avec de nombreuses technologies de pointe : HTML, CSS, Bootstrap, Flask.
+                        Les fichiers audios ont eux été stockés sur Discord.
+                        Git a été utilisé pour coordonner le codage du site et faciliter le travail collaboratif.
+                      <br><strong>NB: Nous vous conseillons d’utiliser Google Chrome comme navigateur pour assurer une meilleure expérience utilisateur.</strong></p>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div>
             <div class="card mb-4">
                 <div class="card-body">
-                    <h2 class="card-title text-success">III - Site</h2>
+                    <h2 class="text-primary">III - Résultats</h2>
+                    <ul>
+                      <h3 class="card-subtitle mb-2 text-muted">III.1. Visite de notre site</h3>
+                      <p class="card-text">Tester notre Application :<a href=" http://localhost:4449/"> <strong>ICI </strong> </a></p>
+                      
+                      <h3 class="card-subtitle mb-2 text-muted">III.2. Notre Application</h3>
+                        <p class="card-text">
+                        <ol> 
+                        <li> Lecture des titres d’articles du journal le Monde</li>
+                        <li> Liens vers chaque article</li>
+                        <li> Recherche par dates </li>
+                        <li> Actualisation du site web tous les jours à 12h </li>
+                        <li> Téléchargement du fichier audio </li>
+                        <li> Modification de la vitesse de lecture</li>
+                        </ol>
+                        </p>
+                      </ul>                      
                 </div>
             </div>
         </div>
+        <div>
+          <div class="card mb-4">
+              <div class="card-body">
+                  <h2 class="text-primary">IV - Discussion</h2>
+                    <p><i>Potentiels ajouts aux projets </i></p>
+                    <p class="card-text">
+                    <ul>
+                      <li> Ajouts de sources de flux RSS avec des journaux spécialisés dans un domaine spécifique
+                        (ex : Sport → L’Equipe, Mode → Vogue, ELLE… , Finance → Forbes, The Economist, Cuisine : Cuisine Actuelle)</li>
+                      <li> Offrir la possibilité d’écouter en entier le flux RSS de l’article de notre choix</li>
+                      <li> Développement d’un compte Tik Tok </li>
+                    </ul>
+                    </p>
+                  </p><strong>DES QUESTIONS? SUGGESTIONS POUR AMÉLIORATION?<strong></p>
+              </div>
+          </div>
+      </div>
     </div>
 
     <!-- Ajoutez plus de sections ici -->
 
 </div>
+
 <!-- Footer -->
-<footer class="bg-dark text-white text-center py-3 fixed-bottom">
+<footer class="bg-dark text-white text-center py-3">
   <div class="container">
     StreamVoice - © 2024
   </div>
