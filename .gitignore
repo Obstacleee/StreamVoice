@@ -15,3 +15,4 @@ start.bat
 /.idea/modules.xml
 /.idea/vcs.xml
 test.py
+.env
