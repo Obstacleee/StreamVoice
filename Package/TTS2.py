@@ -43,6 +43,7 @@ def text_to_speech(texte, voice='alloy'):
         audio.export("mp3/audio.mp3", format="mp3")
         lien = discord_storage.send_and_get_file_link("mp3/audio.mp3")
         return lien
+
     else:
         response = requests.post(
             "https://api.openai.com/v1/audio/speech",
