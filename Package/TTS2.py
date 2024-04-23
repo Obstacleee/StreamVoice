@@ -2,11 +2,12 @@ import os  # Library for interacting with the operating system
 import tempfile  # Library for creating temporary files and directories
 
 import requests  # Library for making HTTP requests
-from pydub import AudioSegment
 from moviepy.editor import concatenate_audioclips, AudioFileClip
 
 from Package import discord_storage
+from dotenv import load_dotenv
 
+load_dotenv()
 
 
 openai_key = os.getenv('OPENAIKEY')
@@ -43,7 +44,7 @@ def text_to_speech(texte, voice='alloy'):
 
         # Raise an exception if the API call was unsuccessful
         if response.status_code != 200:
-           raise Exception(f"Request failed with status code: {response.status_code}")
+            raise Exception(f"Request failed with status code: {response.status_code}")
 
         # Save the speech to a temporary MP3 file and return the file path
         with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as tmpfile:
