@@ -1,17 +1,16 @@
 import os
 import tempfile
 import requests
-import subprocess
+from pydub import AudioSegment
 
 from Package import discord_storage
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 openai_key = os.getenv('OPENAIKEY')
 
 def text_to_speech(texte, voice='alloy'):
-    
     partie1 = None
     partie2 = None
     if len(texte) > 4096:
@@ -43,10 +42,13 @@ def text_to_speech(texte, voice='alloy'):
             tmpfile.write(response.content)
             files2 = tmpfile.name
 
-        # Utilisation de FFmpeg pour concaténer les fichiers audio
+        # Utilisation de PyDub pour concaténer les fichiers audio
+        sound1 = AudioSegment.from_mp3(files1)
+        sound2 = AudioSegment.from_mp3(files2)
+        combined = sound1 + sound2
+
         output_file = "mp3/final.mp3"
-        command = f"ffmpeg -i 'concat:{files1}|{files2}' -acodec copy {output_file}"
-        subprocess.run(command, shell=True, check=True)
+        combined.export(output_file, format="mp3")
 
         lien = discord_storage.send_and_get_file_link(output_file)
         os.remove(output_file)
