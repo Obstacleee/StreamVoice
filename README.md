@@ -1,22 +1,25 @@
 <h1 align="center" id="title">StreamVoice</h1>
 
-<p align="center"><img src="https://socialify.git.ci/Obstacleee/StreamVoice/image?description=1&amp;descriptionEditable=Flux%20RSS%20to%20audio%20WebSite&amp;font=Jost&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;theme=Auto" alt="project-image"></p>
+<p align="center"><img src="https://socialify.git.ci/Obstacleee/StreamVoice/image?description=1&amp;descriptionEditable=Flux%20RSS%20to%20audio%20WebSite&amp;font=Jost&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;theme=Auto" alt="image du projet"></p>
 
-<p id="description">Projet-RSS est un agrégateur de flux RSS développé en Python. Il permet de récupérer et de transformer en audio des articles provenant de différentes sources RSS.</p>
+<p id="description">Le projet StreamVoice est un agrégateur de flux RSS développé en Python. Il est conçu pour récupérer les articles de diverses sources RSS et les convertir en format audio, facilitant ainsi l'écoute des mises à jour d'actualités ou d'articles.</p>
 
-<h2>🚀 Demo</h2>
+<h2>🚀 Démo</h2>
 
-[http://streamvoice.alwaysdata.net/](http://streamvoice.alwaysdata.net/)
+Visitez le site de StreamVoice
 
-  
-  
-<h2>🧐 Features</h2>
+<h2>🧐 Fonctionnalités</h2>
 
-Here're some of the project's best features:
+Voici quelques-unes des meilleures fonctionnalités du projet :
 
-<h2>🛠️ Installation Steps:</h2>
+*   Récupère et affiche les flux RSS de différentes source
+*   Permet d'ajouter de supprimer et de mettre à jour les flux RSS
+*   Fournit une interface utilisateur web pour interagir avec l'agrégateur
+*   Prend en charge la pagination pour une meilleure navigation des articles
 
-<p>1. Clone the repository</p>
+
+<h2>🛠️ Étapes d'installation</h2>
+<p>1. Clonez le dépôt :</p>
 
 ```
 git clone https://github.com/Obstacleee/Projet-RSS/tree/main
@@ -28,15 +31,15 @@ git clone https://github.com/Obstacleee/Projet-RSS/tree/main
 pip install -r requirements.txt
 ```
 
-<p>3. Set environement Key</p>
+<p>3. Configurez les clés d'environnement.</p>
 
-<p>4. Start the main.py for the audio</p>
+<p>4. Lancez `main.py` pour la fonctionnalité audio :</p>
 
 ```
 python main.py
 ```
 
-<p>5. and finaly start the Site.py for the site</p>
+<p>5. Enfin, démarrez `Site.py` pour accéder au site web :</p>
 
 ```
 python Site.py
@@ -44,10 +47,11 @@ python Site.py
 
   
   
-<h2>💻 Built with</h2>
+<h2>💻 Construit avec</h2>
 
-Technologies used in the project:
+Technologies utilisées dans le projet :
 
-*   Python
-*   HTML
-*   CSS
+*   Python pour le développement backend
+*   Framework Flask pour la création de l'application web
+*   HTML/CSS/JavaScript pour l'interface utilisateur
+
